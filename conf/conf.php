@@ -14,6 +14,6 @@
     session_start();
 
     include (__DIR__."/user.php");
-
+    include (__DIR__."/db.php");
 
 ?>
