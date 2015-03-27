@@ -11,6 +11,9 @@
 <body>
 <?php
     print_menu();
+
+    display_photo();
+    print_answer_form();
 ?>
 </body>
 </html>
