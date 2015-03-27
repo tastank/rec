@@ -10,10 +10,14 @@
 </head>
 <body>
 <?php
-    if (isset($_GET('day')) {
-        $day = $_GET('day'); 
+    if (isset($_POST['manf'])) {
+        insert_answer($_POST);
+    }
+    if (isset($_GET['day'])) {
+        $day = $_GET['day']; 
     } else {
         $day = date("Ymd");
+    }
 
 
     display_photo($day);

@@ -11,7 +11,7 @@
 
     define('SITE_ROOT', '/rec');
 
-    session_start();
+//    session_start();
 
     include (__DIR__."/user.php");
     include (__DIR__."/db.php");
