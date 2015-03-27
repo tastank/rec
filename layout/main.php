@@ -4,23 +4,20 @@
 
 <?php
 
-    function print_menu() {
+    function display_photo($day) {
+        $get_filename_query_string = "SELECT filename FROM aircraft WHERE date = '" . $day . "';";
+        $filename_result = mysql_query($get_filename_query_string);
+        $filename_arr = mysql_fetch_assoc($filename_result);
+        $filename = $filename_arr['filename'];
+        //now that we have the filename, print the image
         ?>
-            <div id="horiz_navbar">
-                <ul>
-                    <li><a href="">View flights</a></li>
-                    <li><a href="">Scheduler</a></li>
-                    <?php if (!isset($_SESSION['username'])) {
-                        ?>
-                    <li><a href="<?php echo SITE_ROOT ?>/login.php">Log in</a></li>
-                    <?php } else {
-                        ?>
-                    <li><a href="">Account</a></li>
-                    <li><a href="<?php echo SITE_ROOT ?>/logout.php">Log out</a></li>
-                    <?php } ?>
-                </ul>
+            <div class="image">
+            <img src="<?php echo $filename ?>" />
             </div>
         <?php
+    }
+
+    function print_answer_form($day) {
     }
 
 ?>

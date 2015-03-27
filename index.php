@@ -10,10 +10,14 @@
 </head>
 <body>
 <?php
-    print_menu();
+    if (isset($_GET('day')) {
+        $day = $_GET('day'); 
+    } else {
+        $day = date("Ymd");
 
-    display_photo();
-    print_answer_form();
+
+    display_photo($day);
+    print_answer_form($day);
 ?>
 </body>
 </html>
