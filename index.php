@@ -1,4 +1,8 @@
 <?php
+    include_once(__DIR__."conf/user.php");
+    if (!isset($_SESSION['username'])) {
+        header('location: /rec/login.php');
+    }
     include(__DIR__."/conf.php");
     include(__DIR__."/layout/main.php");
 ?>
@@ -10,10 +14,6 @@
 </head>
 <body>
 <?php
-    include_once(__DIR__."conf/user.php");
-    if (!isset($_SESSION['username'])) {
-        header('location: /rec/login.php');
-    }
 
     if (isset($_POST['manf'])) {
         insert_answer($_POST);
