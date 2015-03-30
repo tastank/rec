@@ -1,0 +1,48 @@
+:root {
+    --horiz-navbar-li-width: 120px;
+}
+#horiz_navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#horiz_navbar li {
+    float:left;
+    display:inline-block;
+    /*width: var(--horiz_navbar_li_width); */
+    background-color: #2198bf;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+#horiz_navbar a {
+    color: #FFFFFF;
+    /*width: var(--horiz-navbar-li-width);*/
+    width: 120px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px;
+}
+
+#horiz_navbar a:hover, a:active {
+    background-color: #1A7A99;
+}
+
+.image {
+    margin-left:    auto;
+    margin-right:   auto;
+    width:          1024px;
+}
+
+.answer_form {
+    margin-left:    auto;
+    margin-right:   auto;
+    width:          768px;
+}
+
+ul.vert_navbar {
+
+}
