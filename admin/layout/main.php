@@ -20,30 +20,6 @@
         return $answers_result;
     }
 
-
-        }
-
-        ?>
-            <div class="answer_form">
-            <form action="index.php" method="POST">
-            <table class="answer_form">
-                <tr>
-                    <td width="200">Your Name: </td>        <td width="500"><input type="text" name="username" ></td>
-                </tr><tr>
-                    <td>Manufacturer: </td><td><input type="text" name="manf"></td>
-                </tr><tr>
-                    <td>Number: </td>      <td><input type="text" name="model"></td>
-                </tr><tr>
-                    <td>Name: </td>        <td><input type="text" name="name"></td>
-                </tr>
-            </table>
-            <input type="hidden" name="number" value="<?php echo $number ?>">
-            <input type="submit" name="Submit" value="Submit" />
-            </form>
-            </div>
-        <?php
-    }
-
     function insert_answer($POST) {
         $username = mysql_real_escape_string($POST['username']);
         $number = mysql_real_escape_string($POST['number']);

@@ -1,4 +1,8 @@
 <?php
+    include_once(__DIR__."../conf/user.php");
+    if (!isset($_SESSION['username']) && $_SESSION['username'] != "admin") {
+//      header('location: /rec/login.php');
+    }
     include(__DIR__."/conf.php");
     include(__DIR__."/layout/main.php");
 ?>
@@ -10,10 +14,6 @@
 </head>
 <body>
 <?php
-    include_once(__DIR__."conf/user.php");
-    if (!isset($_SESSION['username'])) {
-        header('location: /rec/login.php');
-    }
 
     if (isset($_POST['manf'])) {
         insert_answer($_POST);
@@ -24,13 +24,16 @@
         $day = date("Ymd");
     }
 
+    $answers_result = get_answers_query();
+
     ?>
         <div class="answers_table">
-        <table class="answers_table">
         <form action="index.php" method="POST">
+        <table class="answers_table">
         <tr>
-        <b><td>Username</td><td>Date</td><td>Manufacturer</td><td>Number</td><td>Name</td></b>
+        <b><td>Username</td><td>Date</td><td>Manufacturer</td><td>Number</td><td>Name</td><td>Score</td></b>
         <?php
+        $answer_it = 0;
         while ($answers_arr = mysql_fetch_assoc($answers_result)) {
             if (!$answers_arr['resolved']) {
                 ?>
@@ -41,6 +44,23 @@
                 </td>
                 <!--date-->
                 <td>
+                <?php echo $answers_arr['date']; ?>
+                </td>
+                <!--Manufacturer-->
+                <td>
+                <?php echo $answers_arr['manf']; ?>
+                </td>
+                <!--Number-->
+                <td>
+                <?php echo $answers_arr['model']; ?>
+                </td>
+                <!--Name-->
+                <td>
+                <?php echo $answers_arr['name']; ?>
+                </td>
+                <!--Score-->
+                <td>
+                <input type=text width="36" name="score<?php echo $answer_it ?>" />
                 </td>
                 </tr>
                 <?php
@@ -49,6 +69,7 @@
         ?>
 
         </table>
+        </form>
         </div>
     <?php
 
