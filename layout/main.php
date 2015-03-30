@@ -26,7 +26,6 @@
         $number_result = mysql_query($get_number_query_string);
         $number_arr = mysql_fetch_assoc($number_result);
         $number = $number_arr['number'];
-
         ?>
             <div class="answer_form">
             <form action="index.php" method="POST">
@@ -42,6 +41,7 @@
                 </tr>
             </table>
             <input type="hidden" name="number" value="<?php echo $number ?>">
+            <input type="hidden" name="date" value="<?php echo $day ?>">
             <input type="submit" name="Submit" value="Submit" />
             </form>
             </div>
@@ -54,13 +54,15 @@
         $manf = mysql_real_escape_string($POST['manf']);
         $model = mysql_real_escape_string($POST['model']);
         $name = mysql_real_escape_string($POST['name']);
+        $date = mysql_real_escape_string($POST['date']);
 
-        $insert_query = "INSERT INTO answers (username, number, manf, model, name) VALUES (".
+        $insert_query = "INSERT INTO answers (username, number, manf, model, name, date) VALUES (".
             "'" . $username . "', ".
             $number . ", ".
             "'" . $manf . "', ".
             "'" . $model . "', ".
             "'" . $name . "'".
+            "'" . $date . "'".
             ");";
         mysql_query($insert_query);
     }
