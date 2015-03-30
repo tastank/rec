@@ -41,26 +41,31 @@
                 <!--username-->
                 <td>
                 <?php echo $answers_arr['username']; ?>
+                <input type="hidden" name="username<?php echo $answer_it; ?>" value="<?php echo $answers_arr['username']; ?>" />
                 </td>
                 <!--date-->
                 <td>
                 <?php echo $answers_arr['date']; ?>
+                <input type="hidden" name="date<?php echo $answer_it; ?>" value="<?php echo $answers_arr['date']; ?>" />
                 </td>
                 <!--Manufacturer-->
                 <td>
                 <?php echo $answers_arr['manf']; ?>
+                <input type="hidden" name="manf<?php echo $answer_it; ?>" value="<?php echo $answers_arr['manf']; ?>" />
                 </td>
                 <!--Number-->
                 <td>
                 <?php echo $answers_arr['model']; ?>
+                <input type="hidden" name="model<?php echo $answer_it; ?>" value="<?php echo $answers_arr['model']; ?>" />
                 </td>
                 <!--Name-->
                 <td>
                 <?php echo $answers_arr['name']; ?>
+                <input type="hidden" name="name<?php echo $answer_it; ?>" value="<?php echo $answers_arr['name']; ?>" />
                 </td>
                 <!--Score-->
                 <td>
-                <input type=text width="36" name="score<?php echo $answer_it ?>" />
+                <input type=text width="36" name="score<?php echo $answer_it; ?>" />
                 </td>
                 </tr>
                 <?php
@@ -69,6 +74,7 @@
         ?>
 
         </table>
+        <input type="submit" value="Submit" name="Submit" />
         </form>
         </div>
     <?php
