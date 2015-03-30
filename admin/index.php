@@ -24,9 +24,34 @@
         $day = date("Ymd");
     }
 
+    ?>
+        <div class="answers_table">
+        <table class="answers_table">
+        <form action="index.php" method="POST">
+        <tr>
+        <b><td>Username</td><td>Date</td><td>Manufacturer</td><td>Number</td><td>Name</td></b>
+        <?php
+        while ($answers_arr = mysql_fetch_assoc($answers_result)) {
+            if (!$answers_arr['resolved']) {
+                ?>
+                <tr>
+                <!--username-->
+                <td>
+                <?php echo $answers_arr['username']; ?>
+                </td>
+                <!--date-->
+                <td>
+                </td>
+                </tr>
+                <?php
+            }
+        }
+        ?>
 
-    display_photo($day);
-    print_answer_form($day);
+        </table>
+        </div>
+    <?php
+
 ?>
 </body>
 </html>
